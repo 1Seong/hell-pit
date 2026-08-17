@@ -1,0 +1,19 @@
+# Local build intermediates
+*.obj
+*.pdb
+*.ilk
+*.res
+
+# Generated build output and local save data
+build/*
+!build/.gitkeep
+
+# User/editor files
+.vs/
+.vscode/
+*.user
+*.suo
+
+# OS noise
+Thumbs.db
+desktop.ini
