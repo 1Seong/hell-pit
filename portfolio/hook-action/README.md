@@ -17,6 +17,8 @@ stateDiagram-v2
 
 **Hook / HookMode:** 후크의 발사·이동 상태를 보관합니다. **UpdateHookFlight:** 적·지형 충돌을 판정합니다. **AttachHookToCombatTarget:** 전투 이동 목표를 정합니다. **UpdateHookPull:** 목표까지 대시를 진행합니다.
 
+**enum 기반 FSM**으로 상태와 전환 조건을 모았습니다. 상태별 클래스에 동작을 위임하는 GoF State 패턴과는 구분하며, 위 도식은 대표 이동·전투 분기만 보여줍니다.
+
 ```cpp
 enum HookMode
 {

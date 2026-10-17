@@ -18,6 +18,8 @@ flowchart LR
 
 **WinMain:** 메시지를 처리하고 120Hz 고정 간격으로 게임을 갱신합니다. **PutPixel / Present:** 내부 픽셀 버퍼에 그린 결과를 창 크기로 확대합니다. **UpdateMouseFromClient:** 창 좌표를 내부 해상도로 변환합니다.
 
+**Game Loop 패턴:** 입력·고정 시간 갱신·렌더링을 분리하고 누적 시간으로 갱신 횟수를 정합니다. 픽셀 배열이 있다는 이유로 Double Buffer 패턴을 적용했다고 설명하지는 않습니다.
+
 ```cpp
 static const int kBufferW = 320;
 static const int kBufferH = 180;
