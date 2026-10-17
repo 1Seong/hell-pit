@@ -4,6 +4,18 @@
 
 ## 코드
 
+```mermaid
+flowchart LR
+  A["생성 요청"] --> B{"비활성 슬롯"}
+  B -->|있음| C["데이터 덮어쓰기 · active"]
+  B -->|없음| D["생성 실패 반환"]
+  C --> E["화면 아래 회수선 통과"]
+  E --> F["active 해제"]
+  F --> B
+  G["챕터별 방문 bool"] --> H["정수 비트마스크"]
+  H --> I["INI 저장·복원"]
+```
+
 **Platform / AddPlatform:** 고정 배열의 빈 슬롯에 지형을 생성합니다. **ReclaimOffscreenTraversal:** 화면 아래로 벗어난 슬롯을 재사용 가능하게 바꿉니다. **BoolArrayToMask / MaskToBoolArray:** 여러 상태를 정수로 변환해 INI 저장에 사용합니다.
 
 ```cpp

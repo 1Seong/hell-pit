@@ -4,6 +4,17 @@
 
 ## 코드
 
+```mermaid
+stateDiagram-v2
+  [*] --> HookIdle
+  HookIdle --> HookFlying: 발사
+  HookFlying --> HookPullEnemy: 적 명중
+  HookFlying --> HookPullTerrain: 지형 명중
+  HookFlying --> HookIdle: 사거리 초과
+  HookPullEnemy --> HookIdle: 전투 대시 종료
+  HookPullTerrain --> HookIdle: 목표 지형 도착
+```
+
 **Hook / HookMode:** 후크의 발사·이동 상태를 보관합니다. **UpdateHookFlight:** 적·지형 충돌을 판정합니다. **AttachHookToCombatTarget:** 전투 이동 목표를 정합니다. **UpdateHookPull:** 목표까지 대시를 진행합니다.
 
 ```cpp
